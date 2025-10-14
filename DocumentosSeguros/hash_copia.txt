@@ -1,0 +1,3 @@
+Algorithm       Hash                                                                   Path
+---------       ----                                                                   ----
+MD5             74DBD6C5275A0059A7A4CDFD17D69879                                       C:\Users\pedro\Desktop\Docume...

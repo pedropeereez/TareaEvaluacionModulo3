@@ -2,52 +2,89 @@
 **Autor:** Pedro Pérez Fernández  
 **Asignatura:** Seguridad Informática  
 **Centro:** MEDAC  
-**Archivo:** `InformeTécninoModulo3.pdf`  
+**Archivo principal:** `InformeTécninoModulo3.pdf`  
 
 ---
 
 ## Descripción general  
-Este documento corresponde a la **tarea de evaluación del Módulo 3**, centrada en los principales mecanismos de seguridad informática aplicados en entornos de trabajo. El informe está estructurado en cuatro partes prácticas y una reflexión final.  
+Este repositorio contiene la **tarea de evaluación del Módulo 3**, centrada en los principales mecanismos de seguridad informática aplicados en sistemas operativos y gestión de datos.  
 
-Cada apartado incluye capturas de pantalla, pasos detallados y conclusiones sobre las herramientas utilizadas.  
+El trabajo se divide en cuatro partes prácticas (cifrado simétrico, cifrado asimétrico, verificación de integridad y control de acceso) y una reflexión final. Además, se incluyen los archivos generados durante la realización de las prácticas.  
 
 ---
 
-## Contenido del informe  
+## Contenido del repositorio  
 
-### **Parte 1 – Cifrado simétrico con AES Crypt**  
-Se describe el proceso de descarga, instalación y uso de **AES Crypt** para proteger archivos mediante cifrado simétrico.  
-Incluye una reflexión sobre las ventajas y riesgos de utilizar una misma clave para varios archivos.  
+### **1. Documento principal**
+- `InformeTécninoModulo3.pdf`  
+  Informe técnico completo que documenta paso a paso el desarrollo de todas las prácticas del módulo.
 
-### **Parte 2 – Cifrado asimétrico con Gpg4win / Kleopatra**  
-Se detalla la creación de un par de claves con **Kleopatra**, la exportación de la clave pública y el cifrado de mensajes de prueba.  
-Se analiza qué ocurriría en caso de filtración de la clave privada.  
+---
 
-### **Parte 3 – Verificación de integridad con MD5**  
-Se utiliza **PowerShell** para calcular el hash MD5 de un archivo y comprobar el **efecto avalancha** al modificar su contenido.  
+### **2. Archivos de la práctica de cifrado simétrico (AES Crypt)**  
+Estos archivos fueron cifrados mediante **AES Crypt** utilizando una clave común para demostrar el funcionamiento del cifrado simétrico:
 
-### **Parte 4 – Control de acceso con ACL en Windows**  
-Se crean tres usuarios locales (Técnico, Gerente y Externo) y se definen sus permisos específicos mediante listas de control de acceso (**ACL**).  
+- `clientes.txt` → Archivo original.  
+- `clientes.txt.aes` → Archivo cifrado con AES.  
+- `contratos.txt.aes` → Archivo cifrado adicional.  
+- `manual.pdf.aes` → Archivo PDF cifrado con AES.
 
-### **Reflexión final**  
-Se expone la importancia de los mecanismos de seguridad para proteger la información sensible y prevenir accesos no autorizados en entornos empresariales.  
+**Objetivo:** Proteger la información confidencial en archivos locales mediante una contraseña compartida.  
+**Conclusión:** Usar una sola contraseña facilita el acceso, pero representa un riesgo si se compromete.  
+
+---
+
+### **3. Archivos de la práctica de cifrado asimétrico (Gpg4win / Kleopatra)**  
+Estos archivos corresponden al uso de cifrado con claves pública y privada mediante **Kleopatra**:
+
+- `mensaje.txt` → Mensaje original sin cifrar.  
+- `mensaje.txt.gpg` → Mensaje cifrado con la clave pública.  
+- `pedro perez fernandez_0xA5DF2CB2_public.asc` → Clave pública exportada desde Kleopatra.  
+
+**Objetivo:** Demostrar el cifrado de datos mediante par de claves asimétricas (pública y privada).  
+**Conclusión:** Si la clave privada se filtra, un tercero puede descifrar los mensajes o suplantar la identidad del propietario.  
+
+---
+
+### **4. Archivos de la práctica de verificación de integridad (MD5)**  
+Se muestran los resultados de los comandos utilizados para generar y comparar los hashes de un archivo:
+
+- `hash_original.txt` → Hash original generado con MD5.  
+- `hash_copia.txt` → Hash posterior a la modificación del archivo.  
+
+**Objetivo:** Comprobar cómo un cambio mínimo en el archivo genera un hash completamente distinto (efecto avalancha).  
+
+---
+
+### **5. Control de acceso con ACL en Windows**  
+La práctica consistió en crear tres usuarios locales con diferentes niveles de permisos sobre una carpeta compartida:
+
+- **Técnico** – Acceso total.  
+- **Gerente** – Lectura y modificación.  
+- **Externo** – Solo lectura.  
+
+**Objetivo:** Aplicar listas de control de acceso (ACL) para gestionar los permisos en entornos Windows.  
+**Conclusión:** La correcta configuración de permisos minimiza riesgos de acceso no autorizado.  
 
 ---
 
 ## Objetivo de la tarea  
-Demostrar la comprensión y aplicación práctica de los conceptos fundamentales de **cifrado, integridad de datos y control de acceso** en sistemas informáticos.  
+Demostrar la comprensión y aplicación práctica de los conceptos de **cifrado, integridad y control de acceso**, fundamentales para la protección de la información en sistemas informáticos.  
 
 ---
 
-## Formato y herramientas utilizadas  
-- **Formato del documento:** PDF  
-- **Herramientas utilizadas:**  
-  - AES Crypt  
-  - Gpg4win / Kleopatra  
-  - PowerShell (comando `Get-FileHash`)  
-  - Configuración de permisos ACL en Windows  
+## Herramientas utilizadas  
+- **AES Crypt** – Cifrado simétrico.  
+- **Gpg4win / Kleopatra** – Cifrado asimétrico.  
+- **PowerShell** – Comandos `Get-FileHash` y `certutil` para verificación de integridad.  
+- **Windows** – Configuración de permisos mediante ACL.  
 
 ---
 
 ## Conclusión  
-El informe presenta una ejecución completa de las prácticas del Módulo 3, con evidencias gráficas y explicaciones claras. Facilita la revisión del aprendizaje práctico en materia de seguridad informática.  
+El conjunto de archivos y el informe demuestran la aplicación práctica de distintos métodos de seguridad informática:  
+- El **cifrado** protege la confidencialidad.  
+- La **verificación de integridad** garantiza que los datos no se han modificado.  
+- El **control de acceso** limita la exposición a usuarios no autorizados.  
+
+Este proyecto evidencia el dominio de las herramientas básicas para la protección de la información en entornos empresariales.  
